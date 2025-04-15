@@ -1,0 +1,40 @@
+{
+    "leads": [
+      {
+        "id": 1,
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "leadDate": "2025-04-08",
+        "leadSource": "Facebook"
+      },
+      {
+        "id": 2,
+        "firstName": "John",
+        "lastName": "Smith",
+        "leadDate": "2025-04-09",
+        "leadSource": "Google Ads"
+      },
+      {
+        "id": 3,
+        "firstName": "Emily",
+        "lastName": "Clark",
+        "leadDate": "2025-04-07",
+        "leadSource": "Referral"
+      },
+      {
+        "id": 4,
+        "firstName": "Michael",
+        "lastName": "Lee",
+        "leadDate": "2025-04-06",
+        "leadSource": "Instagram"
+      },
+      {
+        "id": 5,
+        "firstName": "Sara",
+        "lastName": "Nguyen",
+        "leadDate": "2025-04-05",
+        "leadSource": "LinkedIn"
+      }
+    ]
+  }
+  
