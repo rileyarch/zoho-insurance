@@ -1,24 +1,53 @@
 <template>
   <div class="leads-container">
     <h2>Leads</h2>
+     <!-- Filter section moved above the table -->
+   <div class="filters">
+      <label for="filter-dropdown">Status:  </label>
+      <select 
+        id="filter-dropdown" 
+        class="filter-select" 
+        v-model="selectedFilter"
+        
+      >
+        <option value="All">All Status</option>
+        <option value="Not Contacted">Not Contacted</option>
+        <option value="Closed Won">Closed Won</option>
+        <option value="In Progress">In Progress</option>
+      </select>
+      <label for="filter-dropdown2">Source:  </label>
+      <select 
+        id="filter-dropdown2" 
+        class="filter-select2" 
+        v-model="selectedSource"
+        
+      >
+        <option value="All">All Sources</option>
+        <option value="Facebook">Facebook</option>
+        <option value="Google Ads">Google Ads</option>
+        <option value="Instagram">Instagram</option>
+      </select>
+    </div>
+   
 
-    <!-- Check if there are any leads, otherwise show the loading message -->
-    <table v-if="leads.length" class="lead-table">
+    <!-- Check if there are any filtered leads, otherwise show the loading message -->
+    <table v-if="filteredLeads.length" class="lead-table">
       <thead>
         <tr>
           <th>Name</th>
-          <th>Date</th>
+          <th>Capture Date</th>
           <th>Source</th>
-          <th>Actions</th> <!-- New Actions column -->
+          <th>Lead Status</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="lead in leads" :key="lead.id">
+        <tr v-for="lead in filteredLeads" :key="lead.id">
           <td>{{ lead.firstName }} {{ lead.lastName }}</td>
           <td>{{ lead.leadDate }}</td>
           <td>{{ lead.leadSource }}</td>
+          <td>{{ lead.leadStatus }}</td>
           <td>
-            <!-- Add button to go to LeadDetails view -->
             <router-link :to="{ name: 'leadDetails', params: { id: lead.id } }">
               <button class="view-button">View Details</button>
             </router-link>
@@ -28,8 +57,12 @@
     </table>
 
     <!-- Show loading text if no leads are available yet -->
-    <p v-else class="loading">Loading leads...</p>
+    <p v-else-if="isLoading" class="loading">Loading leads...</p>
+    
+    <!-- Show message when no leads match the filter -->
+    <p v-else class="no-results">No leads match the selected filter.</p>
   </div>
+  
 </template>
 
 <script>
@@ -37,18 +70,46 @@ export default {
   name: 'LeadsView',
   data() {
     return {
-      leads: []
+      leads: [],
+      selectedFilter: 'All',
+      selectedSource: 'All',
+      isLoading: true
     };
   },
-  mounted() {
-    fetch('http://localhost:3000/leads')
-      .then(res => res.json())
-      .then(data => {
-        this.leads = data;
-      })
-      .catch(err => {
-        console.error('Failed to fetch leads:', err);
+  computed: {
+    filteredLeads() {
+      if (this.selectedFilter === 'All' && this.selectedSource==='All') {
+        return this.leads;
+      }
+      
+      return this.leads.filter(lead => {
+    // Handle each filter independently
+    const statusMatch = this.selectedFilter === 'All' || lead.leadStatus === this.selectedFilter;
+    const sourceMatch = this.selectedSource === 'All' || lead.leadSource === this.selectedSource;
+    
+    // Only return leads that match both conditions
+    return statusMatch && sourceMatch;
       });
+    }
+  },
+  methods: {
+    
+    fetchLeads() {
+      this.isLoading = true;
+      fetch('http://localhost:3000/leads')
+        .then(res => res.json())
+        .then(data => {
+          this.leads = data;
+          this.isLoading = false;
+        })
+        .catch(err => {
+          console.error('Failed to fetch leads:', err);
+          this.isLoading = false;
+        });
+    }
+  },
+  mounted() {
+    this.fetchLeads();
   }
 };
 </script>
@@ -85,7 +146,7 @@ export default {
 }
 
 .lead-table tr:hover {
-  background-color: #f9f9f9;
+  background-color: #f1f1f1;
 }
 
 /* Styling for the view button */
@@ -103,9 +164,33 @@ export default {
 }
 
 /* Loading text styling */
-.loading {
+.loading, .no-results {
   text-align: center;
   color: #777;
   font-style: italic;
+  margin-top: 2rem;
+}
+
+.filters {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  position: relative;
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+  min-width: 150px;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
 }
 </style>
