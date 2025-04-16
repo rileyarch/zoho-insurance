@@ -7,6 +7,7 @@ import ProfileView from '../Views/ProfileView.vue';
 import TicketsView from '../Views/TicketsView.vue';
 import LeadsView from '../Views/LeadsView.vue';
 import LeadDetails from '../Views/LeadDetails.vue';
+import LoginForm from '../Views/LoginForm.vue';
 
 const routes = [
   {
@@ -44,6 +45,10 @@ const routes = [
     name: 'leadDetails',
     component: LeadDetails,
     props: true // This allows the route parameters to be passed as props
+  },{
+    path: '/login',
+    name: 'login',
+    component: LoginForm
   }
  
 ];
@@ -52,5 +57,6 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+
 
 export default router;

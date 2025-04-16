@@ -1,27 +1,32 @@
 <template>
   <div id="app">
-    <!-- Render Navbar -->
-    <NavbarTemplate />
+    <login-form v-if="!isLoggedIn" @login-success="handleLoginSuccess"/>  
 
     <!-- Render the current route's component here -->
-    <router-view></router-view> <!-- This is where the route components will appear -->
+    <router-view v-else></router-view> <!-- This is where the route components will appear -->
 
-    <!-- Render Footer -->
-    <FooterTemplate />
+    
   </div>
 </template>
 
 <script>
-import NavbarTemplate from './components/Navbar.vue';
-import FooterTemplate from './components/Footer.vue';
+import LoginForm from './Views/LoginForm.vue';
 
 export default {
   name: 'App',
   components: {
-    NavbarTemplate,
-    FooterTemplate,
+    LoginForm
   },
-};
+  data(){
+    return{
+      isLoggedIn: false
+    }
+  },
+
+  methods: {
+    handleLoginSuccess() {
+      this.isLoggedIn = true;
+}}}
 </script>
 
 <style scoped>

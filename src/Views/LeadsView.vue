@@ -1,5 +1,6 @@
 <template>
   <div class="leads-container">
+    <Navbar></Navbar>
     <h2>Leads</h2>
      <!-- Filter section moved above the table -->
    <div class="filters">
@@ -61,13 +62,21 @@
     
     <!-- Show message when no leads match the filter -->
     <p v-else class="no-results">No leads match the selected filter.</p>
+    <Footer></Footer>
   </div>
   
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue';
+import Navbar from '@/components/Navbar.vue';
+
 export default {
   name: 'LeadsView',
+  components: {
+    Navbar,
+    Footer
+  },
   data() {
     return {
       leads: [],
@@ -117,7 +126,7 @@ export default {
 <style scoped>
 /* Container for the leads view */
 .leads-container {
-  max-width: 900px;
+
   margin: 2rem auto;
   padding: 1rem;
   font-family: 'Segoe UI', sans-serif;
@@ -179,13 +188,14 @@ export default {
   position: relative;
 }
 
-.filter-select {
+.filter-select, .filter-select2 {
   padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: white;
   font-size: 14px;
   min-width: 150px;
+  margin: 20px;
 }
 
 .filter-select:focus {

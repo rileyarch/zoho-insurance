@@ -1,5 +1,6 @@
 <template>
     <div class="lead-details-container">
+      <Navbar></Navbar>
       <h2>Lead Details</h2>
   
       <div v-if="lead">
@@ -9,12 +10,21 @@
         <textarea name="text" id=""></textarea>
       </div>
       <p v-else>Loading lead details...</p>
+      <Footer></Footer>
     </div>
+    
   </template>
   
   <script>
+import Footer from '@/components/Footer.vue';
+import Navbar from '@/components/Navbar.vue';
+
   export default {
     name: 'LeadDetails',
+    components: {
+      Navbar,
+      Footer
+    },
     data() {
       return {
         lead: null
