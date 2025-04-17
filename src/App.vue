@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <login-form v-if="!isLoggedIn" @login-success="handleLoginSuccess"/>  
+    <!-- <login-form v-if="!isLoggedIn" @login-success="handleLoginSuccess"/> -->
 
     <!-- Render the current route's component here -->
-    <router-view v-else></router-view> <!-- This is where the route components will appear -->
+    <router-view></router-view> <!-- This is where the route components will appear -->
 
     
   </div>
 </template>
 
 <script>
-import LoginForm from './Views/LoginForm.vue';
+
 
 export default {
   name: 'App',
   components: {
-    LoginForm
+    
   },
   data(){
     return{

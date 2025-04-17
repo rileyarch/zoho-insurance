@@ -1,6 +1,6 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
-import AboutView from '../Views/AboutView.vue'; // Replace with your views
+
 import DashboardView from '../Views/DashboardView.vue';
 import MarketingDollarsView from '../Views/MarketingDollarsView.vue';
 import ProfileView from '../Views/ProfileView.vue';
@@ -15,11 +15,7 @@ const routes = [
     name: 'dashboard',
     component: DashboardView, // This should be the component to render for the home page
   },
-  {
-    path: '/about',
-    name: 'about',
-    component: AboutView, // The component to render for the about page
-  },
+  
   {
     path: '/marketingDollars',
     name: 'marketingDollards',
