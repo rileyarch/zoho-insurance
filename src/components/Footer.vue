@@ -2,6 +2,7 @@
 <template>
     <footer class="footer">
       <p>&copy; 2025 My Company. All rights reserved.</p>
+      <p>Built by Analytic Insights</p>
     </footer>
   </template>
   
@@ -18,8 +19,8 @@
   color: white;
   font-weight: bold;
   font-size: large;
-  border-radius: 20px;
-  bottom: 0;
+  
+  
   }
   </style>
   

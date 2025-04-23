@@ -17,8 +17,10 @@
         <router-link to="/profile" active-class="active">Profile</router-link>
       </li>
       <li>
-        <router-link to="/about" active-class="active">About</router-link>
+        <router-link to="/settings" active-class="active">Settings</router-link>
       </li>
+      
+      
 
       <!-- Log Out button on the far right -->
       <li class="logout">
@@ -47,16 +49,26 @@ export default {
   color: white;
   font-weight: bold;
   font-size: large;
-  border-radius: 20px;
+  
+  width: 200px;
+  height: 90vh;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+ 
 }
 
 .navbar ul {
   display: flex;
   list-style: none;
+  flex-direction: column;
   margin: 0;
   padding: 0;
-  justify-content: space-between;
-  width: 100%;
+  align-items: start;
+  gap: 15px;
+  
 }
 
 .navbar li {
