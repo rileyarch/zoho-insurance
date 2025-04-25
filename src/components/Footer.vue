@@ -15,10 +15,14 @@
   <style scoped>
   .footer {
     background-color: #4a5dcb;
-  padding: 20px;
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  bottom: 0;
   color: white;
   font-weight: bold;
   font-size: large;
+  
   
   
   }

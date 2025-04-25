@@ -46,14 +46,16 @@ export default {
 .navbar {
   background-color: #4a5dcb;
   padding: 20px;
+  
   color: white;
   font-weight: bold;
   font-size: large;
   
   width: 200px;
-  height: 90vh;
+  
   position: fixed;
   top: 120px;
+  bottom: 120px;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -67,7 +69,8 @@ export default {
   margin: 0;
   padding: 0;
   align-items: start;
-  gap: 15px;
+  gap: 20px;
+  position: relative;
   
 }
 
@@ -88,7 +91,11 @@ export default {
 }
 
 .logout {
-  margin-left: auto;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
 }
 
 button {

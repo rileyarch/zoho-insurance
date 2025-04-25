@@ -21,8 +21,8 @@
         <!-- Main content goes here -->
       </div>
     </div>
-    <div class="footer-div">
-    <Footer></Footer></div>
+    
+    <Footer class="footer-bar"></Footer>
   </div>
 </template>
 
@@ -49,74 +49,12 @@ body, html {
   height: 100%;
   box-sizing: border-box;
 }
-
-/* Container for the entire app */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  
-}
-
-/* Container for the dashboard grid layout */
 .dashboard-container {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: 
-    "notifications main"
-    "quicklinks main";
-  gap: 20px;
-  flex-grow: 1;
-  padding: 20px;
+  padding-top: 120px;
+  padding-left: 200px;
+  padding-bottom: 20px;
 }
-
-/* Style for the Notification box in the top left */
-.Notification-Container {
-  grid-area: notifications;
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 15px;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  overflow: auto;
-}
-
-/* Style for the Quicklinks box in the bottom left */
-.Quicklinks {
-  grid-area: quicklinks;
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 15px;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  overflow: auto;
-}
-
-/* Style for the Main Content box taking the entire right side */
-.Main-Content {
-  grid-area: main;
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 15px;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  overflow: auto;
-}
-
-/* Header styles */
-.Notification-Container-Header h2,
-.Quicklinks-header h2,
-.Main-Content-header h1 {
-  margin-top: 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-.header-div {
-height: 80px;
-padding-bottom: 10px;
-}
-.footer-div{
+.footer-bar {
   bottom: 0;
 }
 </style>
