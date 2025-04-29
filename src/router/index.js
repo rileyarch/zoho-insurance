@@ -19,7 +19,7 @@ const routes = [
   
   {
     path: '/marketingDollars',
-    name: 'marketingDollards',
+    name: 'marketingDollars',
     component: MarketingDollarsView, // The component to render for the marketingDollards
   },
   {
@@ -35,7 +35,8 @@ const routes = [
   {
     path: '/leads',
     name: 'leads',
-    component: LeadsView // The component to render for the leads
+    component: LeadsView,
+    props: true // The component to render for the leads
     
     
   },
