@@ -19,17 +19,11 @@
   </template>
   
   <script>
-import Footer from '@/components/Footer.vue';
-import Navbar from '@/components/Navbar.vue';
-import Header from '@/components/Header.vue';
+
 
   export default {
     name: 'LeadDetails',
-    components: {
-      Navbar,
-      Footer,
-      Header
-    },
+    
     data() {
       return {
         lead: null

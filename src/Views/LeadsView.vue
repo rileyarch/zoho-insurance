@@ -54,17 +54,12 @@
 </template>
 
 <script>
-import Footer from '@/components/Footer.vue';
-import Navbar from '@/components/Navbar.vue';
-import Header from '@/components/Header.vue';
+
 
 
 export default {
   name: 'LeadsView',
-  components: {
-    Navbar,
-    Footer,Header
-  }
+ 
 };
 </script>
 

@@ -1,10 +1,10 @@
 <!-- src/views/HomeView.vue -->
 <template>
   <div class="page-container">
-    <Header />
+    
 
     <div class="navbar-container">
-      <Navbar />
+     
     </div>
 
     <main class="main-content">
@@ -37,23 +37,17 @@
       </section>
     </main>
 
-    <Footer class="footer" />
+    
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Navbar from '@/components/Navbar.vue'
-import Footer from '@/components/Footer.vue'
+
 
 
 export default {
   name: 'HomeView',
-  components: {
-    Header,
-    Navbar,
-    Footer
-  },
+  
   data () {
     return {
       modules: [
